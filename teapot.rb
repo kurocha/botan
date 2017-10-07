@@ -37,7 +37,7 @@ define_target 'botan-library' do |target|
 	target.depends 'Build/Files'
 	target.depends 'Build/Clang'
 	
-	target.depends "Build/Make"
+	target.depends "Build/Make", private: true
 	
 	target.depends :platform
 	target.depends 'Language/C++11', private: true
@@ -66,4 +66,6 @@ end
 
 define_configuration "botan" do |configuration|
 	configuration.public!
+	
+	configuration.require 'build-make'
 end
